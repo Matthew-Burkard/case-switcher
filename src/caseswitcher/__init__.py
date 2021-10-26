@@ -1,4 +1,4 @@
-__all__ = ("to_camel", "to_pascal", "to_slug", "to_snake", "to_title")
+__all__ = ("to_camel", "to_pascal", "to_kebab", "to_snake", "to_title")
 
 
 def to_camel(string: str) -> str:
@@ -9,7 +9,7 @@ def to_pascal(string: str) -> str:
     return string
 
 
-def to_slug(string: str) -> str:
+def to_kebab(string: str) -> str:
     return string
 
 
