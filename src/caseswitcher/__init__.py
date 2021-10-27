@@ -1,3 +1,6 @@
+import re
+
+
 def to_camel(string: str) -> str:
     words = get_words(string)
     if len(words) > 0:
@@ -30,4 +33,8 @@ def to_title(string: str) -> str:
 
 
 def get_words(string: str) -> list[str]:
-    return []
+    words = [it for it in re.split(r"\b", string) if it and it not in ". -_"]
+    for word in words:
+        # TODO Split word on r"[a-z][A-Z]"
+        pass
+    return words
