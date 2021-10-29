@@ -46,5 +46,4 @@ def get_words(string: str) -> list[str]:
         if len(camel_words) > 1:
             words.remove(word)
             words.extend(camel_words)
-    print(words)
     return words
