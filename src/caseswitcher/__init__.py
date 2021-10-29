@@ -34,7 +34,17 @@ def to_title(string: str) -> str:
 
 def get_words(string: str) -> list[str]:
     words = [it for it in re.split(r"\b", string) if it and it not in ". -_"]
+    # Split on upper then lower: "oneTwo" -> ["one", "Two"]
     for word in words:
-        # TODO Split word on r"[a-z][A-Z]"
-        pass
+        camel_words = re.split(r"(?<=[a-z])(?=[A-Z])", word)
+        if len(camel_words) > 1:
+            words.remove(word)
+            words.extend(camel_words)
+    # Split on upper then upper + lower: "JSONWord" -> ["JSON", "Word"]
+    for word in words:
+        camel_words = re.split(r"(?<=[A-Z])(?=[A-Z][a-z])", word)
+        if len(camel_words) > 1:
+            words.remove(word)
+            words.extend(camel_words)
+    print(words)
     return words
