@@ -185,3 +185,78 @@ class CaseSwitchTest(unittest.TestCase):
             "Avocado Bagel Coffee DONUT Eclair Food Gravy",
             cs.to_title(self.mixed_sample),
         )
+
+    # to_upper_dot Tests
+    def test_to_upper_dot_from_camel(self) -> None:
+        self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.camel_sample))
+
+    def test_to_upper_dot_from_dot(self) -> None:
+        self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.dot_sample))
+
+    def test_to_upper_dot_from_kebab(self) -> None:
+        self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.kebab_sample))
+
+    def test_to_upper_dot_from_pascal(self) -> None:
+        self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.pascal_sample))
+
+    def test_to_upper_dot_from_snake(self) -> None:
+        self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.snake_sample))
+
+    def test_to_upper_dot_from_title(self) -> None:
+        self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.title_sample))
+
+    def test_to_upper_dot_from_mix(self) -> None:
+        self.assertEqual(
+            "AVOCADO.BAGEL.COFFEE.DONUT.ECLAIR.FOOD.GRAVY",
+            cs.to_upper_dot(self.mixed_sample),
+        )
+
+    # to_upper_kebab Tests
+    def test_to_upper_kebab_from_camel(self) -> None:
+        self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.camel_sample))
+
+    def test_to_upper_kebab_from_dot(self) -> None:
+        self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.dot_sample))
+
+    def test_to_upper_kebab_from_kebab(self) -> None:
+        self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.kebab_sample))
+
+    def test_to_upper_kebab_from_pascal(self) -> None:
+        self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.pascal_sample))
+
+    def test_to_upper_kebab_from_snake(self) -> None:
+        self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.snake_sample))
+
+    def test_to_upper_kebab_from_title(self) -> None:
+        self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.title_sample))
+
+    def test_to_upper_kebab_from_mix(self) -> None:
+        self.assertEqual(
+            "AVOCADO-BAGEL-COFFEE-DONUT-ECLAIR-FOOD-GRAVY",
+            cs.to_upper_kebab(self.mixed_sample),
+        )
+
+    # to_upper_snake Tests
+    def test_to_upper_snake_from_camel(self) -> None:
+        self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.camel_sample))
+
+    def test_to_upper_snake_from_dot(self) -> None:
+        self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.dot_sample))
+
+    def test_to_upper_snake_from_kebab(self) -> None:
+        self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.kebab_sample))
+
+    def test_to_upper_snake_from_pascal(self) -> None:
+        self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.pascal_sample))
+
+    def test_to_upper_snake_from_snake(self) -> None:
+        self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.snake_sample))
+
+    def test_to_upper_snake_from_title(self) -> None:
+        self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.title_sample))
+
+    def test_to_upper_snake_from_mix(self) -> None:
+        self.assertEqual(
+            "AVOCADO_BAGEL_COFFEE_DONUT_ECLAIR_FOOD_GRAVY",
+            cs.to_upper_snake(self.mixed_sample),
+        )

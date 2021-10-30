@@ -1,13 +1,16 @@
 import re
 
 __all__ = (
+    "get_words",
     "to_camel",
     "to_dot",
     "to_kebab",
     "to_pascal",
     "to_snake",
     "to_title",
-    "get_words",
+    "to_upper_dot",
+    "to_upper_kebab",
+    "to_upper_snake",
 )
 
 
@@ -40,6 +43,18 @@ def to_title(string: str) -> str:
     if len(words) > 0:
         return " ".join(map(_capitalize, words))
     return string.capitalize()
+
+
+def to_upper_dot(string: str) -> str:
+    return ".".join(map(lambda w: w.upper(), get_words(string)))
+
+
+def to_upper_kebab(string: str) -> str:
+    return "-".join(map(lambda w: w.upper(), get_words(string)))
+
+
+def to_upper_snake(string: str) -> str:
+    return "_".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def get_words(string: str) -> list[str]:
