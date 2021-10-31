@@ -24,7 +24,7 @@ Supported cases:
 - kebab-case
 - PascalCase
 - snake_case
-- TitleCase
+- Title Case
 - UPPER.DOT.CASE
 - UPPER-KEBAB-CASE
 - UPPER_SNAKE_CASE

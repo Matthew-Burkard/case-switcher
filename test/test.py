@@ -11,6 +11,7 @@ class CaseSwitchTest(unittest.TestCase):
         self.pascal_sample = "CoffeeJSONDonut"
         self.snake_sample = "coffee_json_donut"
         self.title_sample = "Coffee JSON Donut"
+        self.lone_word_sample = "Honey"
         self.mixed_sample = "avocado bagel-coffeeDONUTEclair_food.gravy"
         super(CaseSwitchTest, self).__init__(*args)
 
@@ -32,6 +33,12 @@ class CaseSwitchTest(unittest.TestCase):
 
     def test_get_words_from_title(self) -> None:
         self.assertEqual(["Coffee", "JSON", "Donut"], cs.get_words(self.title_sample))
+
+    def test_get_words_from_lone_word(self) -> None:
+        self.assertEqual([self.lone_word_sample], cs.get_words(self.lone_word_sample))
+
+    def test_get_words_from_nothing(self) -> None:
+        self.assertEqual([], cs.get_words(""))
 
     def test_get_words_from_mix(self) -> None:
         self.assertEqual(
@@ -58,6 +65,12 @@ class CaseSwitchTest(unittest.TestCase):
     def test_to_camel_from_title(self) -> None:
         self.assertEqual("coffeeJSONDonut", cs.to_camel(self.title_sample))
 
+    def test_to_camel_from_lone_word(self) -> None:
+        self.assertEqual("honey", cs.to_camel(self.lone_word_sample))
+
+    def test_to_camel_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_camel(""))
+
     def test_to_camel_from_mix(self) -> None:
         self.assertEqual(
             "avocadoBagelCoffeeDONUTEclairFoodGravy", cs.to_camel(self.mixed_sample)
@@ -82,6 +95,12 @@ class CaseSwitchTest(unittest.TestCase):
     def test_to_dot_from_title(self) -> None:
         self.assertEqual("coffee.json.donut", cs.to_dot(self.title_sample))
 
+    def test_to_dot_from_lone_word(self) -> None:
+        self.assertEqual("honey", cs.to_dot(self.lone_word_sample))
+
+    def test_to_dot_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_dot(""))
+
     def test_to_dot_from_mix(self) -> None:
         self.assertEqual(
             "avocado.bagel.coffee.donut.eclair.food.gravy", cs.to_dot(self.mixed_sample)
@@ -105,6 +124,12 @@ class CaseSwitchTest(unittest.TestCase):
 
     def test_to_kebab_from_title(self) -> None:
         self.assertEqual("coffee-json-donut", cs.to_kebab(self.title_sample))
+
+    def test_to_kebab_from_lone_word(self) -> None:
+        self.assertEqual("honey", cs.to_kebab(self.lone_word_sample))
+
+    def test_to_kebab_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_kebab(""))
 
     def test_to_kebab_from_mix(self) -> None:
         self.assertEqual(
@@ -131,6 +156,12 @@ class CaseSwitchTest(unittest.TestCase):
     def test_to_pascal_from_title(self) -> None:
         self.assertEqual("CoffeeJSONDonut", cs.to_pascal(self.title_sample))
 
+    def test_to_pascal_from_lone_word(self) -> None:
+        self.assertEqual(self.lone_word_sample, cs.to_pascal(self.lone_word_sample))
+
+    def test_to_pascal_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_pascal(""))
+
     def test_to_pascal_from_mix(self) -> None:
         self.assertEqual(
             "AvocadoBagelCoffeeDONUTEclairFoodGravy", cs.to_pascal(self.mixed_sample)
@@ -154,6 +185,12 @@ class CaseSwitchTest(unittest.TestCase):
 
     def test_to_snake_from_title(self) -> None:
         self.assertEqual("coffee_json_donut", cs.to_snake(self.title_sample))
+
+    def test_to_snake_from_lone_word(self) -> None:
+        self.assertEqual("honey", cs.to_snake(self.lone_word_sample))
+
+    def test_to_snake_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_snake(""))
 
     def test_to_snake_from_mix(self) -> None:
         self.assertEqual(
@@ -180,6 +217,12 @@ class CaseSwitchTest(unittest.TestCase):
     def test_to_title_from_title(self) -> None:
         self.assertEqual("Coffee JSON Donut", cs.to_title(self.title_sample))
 
+    def test_to_title_from_lone_word(self) -> None:
+        self.assertEqual(self.lone_word_sample, cs.to_title(self.lone_word_sample))
+
+    def test_to_title_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_title(""))
+
     def test_to_title_from_mix(self) -> None:
         self.assertEqual(
             "Avocado Bagel Coffee DONUT Eclair Food Gravy",
@@ -204,6 +247,12 @@ class CaseSwitchTest(unittest.TestCase):
 
     def test_to_upper_dot_from_title(self) -> None:
         self.assertEqual("COFFEE.JSON.DONUT", cs.to_upper_dot(self.title_sample))
+
+    def test_to_upper_dot_from_lone_word(self) -> None:
+        self.assertEqual("HONEY", cs.to_upper_dot(self.lone_word_sample))
+
+    def test_to_upper_dot_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_upper_dot(""))
 
     def test_to_upper_dot_from_mix(self) -> None:
         self.assertEqual(
@@ -230,6 +279,12 @@ class CaseSwitchTest(unittest.TestCase):
     def test_to_upper_kebab_from_title(self) -> None:
         self.assertEqual("COFFEE-JSON-DONUT", cs.to_upper_kebab(self.title_sample))
 
+    def test_to_upper_kebab_from_lone_word(self) -> None:
+        self.assertEqual("HONEY", cs.to_upper_kebab(self.lone_word_sample))
+
+    def test_to_upper_kebab_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_upper_kebab(""))
+
     def test_to_upper_kebab_from_mix(self) -> None:
         self.assertEqual(
             "AVOCADO-BAGEL-COFFEE-DONUT-ECLAIR-FOOD-GRAVY",
@@ -254,6 +309,12 @@ class CaseSwitchTest(unittest.TestCase):
 
     def test_to_upper_snake_from_title(self) -> None:
         self.assertEqual("COFFEE_JSON_DONUT", cs.to_upper_snake(self.title_sample))
+
+    def test_to_upper_snake_from_lone_word(self) -> None:
+        self.assertEqual("HONEY", cs.to_upper_snake(self.lone_word_sample))
+
+    def test_to_upper_snake_from_nothing(self) -> None:
+        self.assertEqual("", cs.to_upper_snake(""))
 
     def test_to_upper_snake_from_mix(self) -> None:
         self.assertEqual(
