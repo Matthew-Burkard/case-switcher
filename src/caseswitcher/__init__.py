@@ -17,8 +17,10 @@ __all__ = (
 def to_camel(string: str) -> str:
     words = get_words(string)
     if len(words) > 0:
-        return words[0].lower() + "".join(map(_capitalize, words[1:]))
-    return string.lower()
+        first_word = words[0] if words[0].isupper() else words[0].lower()
+    else:
+        first_word = ""
+    return first_word + "".join(map(_capitalize, words[1:]))
 
 
 def to_dot(string: str) -> str:
@@ -40,9 +42,7 @@ def to_snake(string: str) -> str:
 
 def to_title(string: str) -> str:
     words = get_words(string)
-    if len(words) > 0:
-        return " ".join(map(_capitalize, words))
-    return string.capitalize()
+    return " ".join(map(_capitalize, words))
 
 
 def to_upper_dot(string: str) -> str:
