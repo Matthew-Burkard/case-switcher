@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Coverage" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="$PROJECT_DIR$/venv/bin/python -m coverage run --omit 'venv/*' -m unittest discover ../test/ " />
+    <option name="SCRIPT_TEXT" value="$PROJECT_DIR$/venv/bin/python -m coverage run --omit '../venv/*' -m unittest discover ../test/ " />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
