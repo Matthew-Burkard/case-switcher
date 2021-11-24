@@ -1,3 +1,4 @@
+"""Unit tests of each case, to each case, round-robin style."""
 import unittest
 
 import caseswitcher as cs

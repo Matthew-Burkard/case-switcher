@@ -1,3 +1,4 @@
+"""Module with functions to change casing of a string."""
 import re
 
 __all__ = (
@@ -15,6 +16,7 @@ __all__ = (
 
 
 def to_camel(string: str) -> str:
+    """Get a string in camelCase format."""
     words = get_words(string)
     if len(words) > 0:
         first_word = words[0] if words[0].isupper() else words[0].lower()
@@ -24,40 +26,49 @@ def to_camel(string: str) -> str:
 
 
 def to_dot(string: str) -> str:
+    """Get a string in dot.case format."""
     return ".".join(map(lambda w: w.lower(), get_words(string)))
 
 
 def to_kebab(string: str) -> str:
+    """Get a string in kebab-case format."""
     return "-".join(map(lambda w: w.lower(), get_words(string)))
 
 
 def to_pascal(string: str) -> str:
+    """Get a string in PascalCase format."""
     words = get_words(string)
     return "".join(map(_capitalize, words))
 
 
 def to_snake(string: str) -> str:
+    """Get a string in snake_case format."""
     return "_".join(map(lambda w: w.lower(), get_words(string)))
 
 
 def to_title(string: str) -> str:
+    """Get a string in Title Case format."""
     words = get_words(string)
     return " ".join(map(_capitalize, words))
 
 
 def to_upper_dot(string: str) -> str:
+    """Get a string in UPPER.DOT.CASE format."""
     return ".".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def to_upper_kebab(string: str) -> str:
+    """Get a string in UPPER-KEBAB-CASE format."""
     return "-".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def to_upper_snake(string: str) -> str:
+    """Get a string in UPPER_SNAKE_CASE format."""
     return "_".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def get_words(string: str) -> list[str]:
+    """Get a list of the words in a string in the order they appear."""
     words = [it for it in re.split(r"\b|_", string) if it and it not in ". -_"]
     # Split on upper then lower: "oneTwo" -> ["one", "Two"]
     for i, word in enumerate(words):
