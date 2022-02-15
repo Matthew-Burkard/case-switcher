@@ -35,6 +35,10 @@ Supported cases:
 ### Install
 
 ```shell
+poetry add case-switcher
+```
+
+```shell
 pip install case-switcher
 ```
 
