@@ -37,8 +37,7 @@ def to_kebab(string: str) -> str:
 
 def to_pascal(string: str) -> str:
     """Get a string in PascalCase format."""
-    words = get_words(string)
-    return "".join(map(_capitalize, words))
+    return "".join(map(_capitalize, get_words(string)))
 
 
 def to_snake(string: str) -> str:
@@ -48,8 +47,7 @@ def to_snake(string: str) -> str:
 
 def to_title(string: str) -> str:
     """Get a string in Title Case format."""
-    words = get_words(string)
-    return " ".join(map(_capitalize, words))
+    return " ".join(map(_capitalize, get_words(string)))
 
 
 def to_upper_dot(string: str) -> str:
@@ -70,7 +68,7 @@ def to_upper_snake(string: str) -> str:
 def get_words(string: str) -> list[str]:
     """Get a list of the words in a string in the order they appear."""
     words = [it for it in re.split(r"\b|_", string) if it and it not in ". -_"]
-    # Split on upper then lower: "oneTwo" -> ["one", "Two"]
+    # Split on lower then upper: "oneTwo" -> ["one", "Two"]
     for i, word in enumerate(words):
         split_words = re.split(r"(?<=[a-z])(?=[A-Z])", word)
         if len(split_words) > 1:
@@ -80,6 +78,13 @@ def get_words(string: str) -> list[str]:
     # Split on upper then upper + lower: "JSONWord" -> ["JSON", "Word"]
     for i, word in enumerate(words):
         split_words = re.split(r"(?<=[A-Z])(?=[A-Z][a-z])", word)
+        if len(split_words) > 1:
+            words.pop(i)
+            for j, sw in enumerate(split_words):
+                words.insert(i + j, sw)
+    # Split on number + letter: "TO1Cat23dog" -> ["TO1", "Cat23", "dog"]
+    for i, word in enumerate(words):
+        split_words = re.split(r"(?<=\d)(?=[A-Za-z])", word)
         if len(split_words) > 1:
             words.pop(i)
             for j, sw in enumerate(split_words):

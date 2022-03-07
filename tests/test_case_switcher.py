@@ -15,6 +15,7 @@ class CaseSwitchTest(unittest.TestCase):
         self.mixed_sample = "avocado bagel-coffeeDONUTEclair_food.gravy"
         self.lone_word_sample = "Honey"
         self.lone_upper_word_sample = "ICING"
+        self.numbers = "JSON1Jelly23kebab"
         super(CaseSwitchTest, self).__init__(*args)
 
     # get_words Tests
@@ -52,6 +53,9 @@ class CaseSwitchTest(unittest.TestCase):
             ["avocado", "bagel", "coffee", "DONUT", "Eclair", "food", "gravy"],
             cs.get_words(self.mixed_sample),
         )
+
+    def test_get_words_with_numbers(self) -> None:
+        self.assertEqual(["JSON1", "Jelly23", "kebab"], cs.get_words(self.numbers))
 
     # to_camel Tests
     def test_to_camel_from_camel(self) -> None:
