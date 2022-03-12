@@ -1,6 +1,7 @@
 <div align=center>
 <!-- Title: -->
   <h1>Case Switcher</h1>
+  <h3>Change the casing of a string.</h3>
 <!-- Labels: -->
   <!-- First row: -->
   <img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg"
@@ -15,13 +16,17 @@
   <img src="https://img.shields.io/badge/coverage-100%25-success"
    height="20"
    alt="Code Coverage">
-  <h3>Change casing of a string.</h3>
+  <a href="https://www.codefactor.io/repository/github/matthew-burkard/case-switcher">
+    <img
+     src="https://www.codefactor.io/repository/github/matthew-burkard/case-switcher/badge"
+     alt="CodeFactor" />
+  </a>
 </div>
 
-This library provides functions to change the casing convention of a
-string.
+This library provides functions to change the casing convention of a string.
 
 Supported cases:
+
 - camelCase
 - dot.case
 - kebab-case
