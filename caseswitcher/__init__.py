@@ -16,7 +16,7 @@ __all__ = (
 
 
 def to_camel(string: str) -> str:
-    """Get a string in camelCase format."""
+    """Return a version of the string in camelCase format."""
     words = get_words(string)
     if len(words) > 0:
         first_word = words[0] if words[0].isupper() else words[0].lower()
@@ -26,42 +26,42 @@ def to_camel(string: str) -> str:
 
 
 def to_dot(string: str) -> str:
-    """Get a string in dot.case format."""
+    """Return a version of the string in dot.case format."""
     return ".".join(map(lambda w: w.lower(), get_words(string)))
 
 
 def to_kebab(string: str) -> str:
-    """Get a string in kebab-case format."""
+    """Return a version of the string in kebab-case format."""
     return "-".join(map(lambda w: w.lower(), get_words(string)))
 
 
 def to_pascal(string: str) -> str:
-    """Get a string in PascalCase format."""
+    """Return a version of the string in PascalCase format."""
     return "".join(map(_capitalize, get_words(string)))
 
 
 def to_snake(string: str) -> str:
-    """Get a string in snake_case format."""
+    """Return a version of the string in snake_case format."""
     return "_".join(map(lambda w: w.lower(), get_words(string)))
 
 
 def to_title(string: str) -> str:
-    """Get a string in Title Case format."""
+    """Return a version of the string in Title Case format."""
     return " ".join(map(_capitalize, get_words(string)))
 
 
 def to_upper_dot(string: str) -> str:
-    """Get a string in UPPER.DOT.CASE format."""
+    """Return a version of the string in UPPER.DOT.CASE format."""
     return ".".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def to_upper_kebab(string: str) -> str:
-    """Get a string in UPPER-KEBAB-CASE format."""
+    """Return a version of the string in UPPER-KEBAB-CASE format."""
     return "-".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def to_upper_snake(string: str) -> str:
-    """Get a string in UPPER_SNAKE_CASE format."""
+    """Return a version of the string in UPPER_SNAKE_CASE format."""
     return "_".join(map(lambda w: w.upper(), get_words(string)))
 
 
