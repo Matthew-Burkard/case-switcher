@@ -1,6 +1,8 @@
 """Module with functions to change casing of a string."""
 import re
 
+from typing import Union
+
 __all__ = (
     "get_words",
     "to_camel",
@@ -69,28 +71,24 @@ def get_words(string: str) -> list[str]:
     """Get a list of the words in a string in the order they appear."""
     words = [it for it in re.split(r"\b|_", string) if it and it not in ". -_"]
     # Split on lower then upper: "oneTwo" -> ["one", "Two"]
-    for i, word in enumerate(words):
-        split_words = re.split(r"(?<=[a-z])(?=[A-Z])", word)
-        if len(split_words) > 1:
-            words.pop(i)
-            for j, sw in enumerate(split_words):
-                words.insert(i + j, sw)
+    words = _split_words_on_regex(words, re.compile(r"(?<=[a-z])(?=[A-Z])"))
     # Split on upper then upper + lower: "JSONWord" -> ["JSON", "Word"]
-    for i, word in enumerate(words):
-        split_words = re.split(r"(?<=[A-Z])(?=[A-Z][a-z])", word)
-        if len(split_words) > 1:
-            words.pop(i)
-            for j, sw in enumerate(split_words):
-                words.insert(i + j, sw)
+    words = _split_words_on_regex(words, re.compile(r"(?<=[A-Z])(?=[A-Z][a-z])"))
     # Split on number + letter: "TO1Cat23dog" -> ["TO1", "Cat23", "dog"]
-    for i, word in enumerate(words):
-        split_words = re.split(r"(?<=\d)(?=[A-Za-z])", word)
-        if len(split_words) > 1:
-            words.pop(i)
-            for j, sw in enumerate(split_words):
-                words.insert(i + j, sw)
+    words = _split_words_on_regex(words, re.compile(r"(?<=\d)(?=[A-Za-z])"))
     return words
 
 
 def _capitalize(word: str) -> str:
     return word if word.isupper() else word.capitalize()
+
+
+def _split_words_on_regex(words: list[str], regex: Union[re.Pattern, str]) -> list[str]:
+    words = words.copy()
+    for i, word in enumerate(words):
+        split_words = re.split(regex, word)
+        if len(split_words) > 1:
+            words.pop(i)
+            for j, sw in enumerate(split_words):
+                words.insert(i + j, sw)
+    return words
