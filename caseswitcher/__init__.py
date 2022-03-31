@@ -20,10 +20,9 @@ __all__ = (
 def to_camel(string: str) -> str:
     """Return a version of the string in camelCase format."""
     words = get_words(string)
+    first_word = ""
     if len(words) > 0:
         first_word = words[0] if words[0].isupper() else words[0].lower()
-    else:
-        first_word = ""
     return first_word + "".join(map(_capitalize, words[1:]))
 
 
