@@ -41,6 +41,11 @@ def to_pascal(string: str) -> str:
     return "".join(map(_capitalize, get_words(string)))
 
 
+def to_path(string: str) -> str:
+    """Return a version of the string in path/case format."""
+    return "/".join(map(lambda w: w.lower(), get_words(string)))
+
+
 def to_snake(string: str) -> str:
     """Return a version of the string in snake_case format."""
     return "_".join(map(lambda w: w.lower(), get_words(string)))
@@ -68,7 +73,7 @@ def to_upper_snake(string: str) -> str:
 
 def get_words(string: str) -> list[str]:
     """Get a list of the words in a string in the order they appear."""
-    words = [it for it in re.split(r"\b|_", string) if it and it not in ". -_"]
+    words = [it for it in re.split(r"\b|_", string) if re.match(r"[\d\w]", it)]
     # Split on lower then upper: "oneTwo" -> ["one", "Two"]
     words = _split_words_on_regex(words, re.compile(r"(?<=[a-z])(?=[A-Z])"))
     # Split on upper then upper + lower: "JSONWord" -> ["JSON", "Word"]

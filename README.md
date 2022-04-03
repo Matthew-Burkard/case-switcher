@@ -31,6 +31,7 @@ Supported cases:
 - dot.case
 - kebab-case
 - PascalCase
+- path/case
 - snake_case
 - Title Case
 - UPPER.DOT.CASE
@@ -58,6 +59,7 @@ caseswitcher.to_camel(sample)  # -> "avocadoBagelCoffeeDONUTEclairFoodGravy"
 caseswitcher.to_dot(sample)  # -> "avocado.bagel.coffee.donut.eclair.food.gravy"
 caseswitcher.to_kebab(sample)  # -> "avocado-bagel-coffee-donut-eclair-food-gravy"
 caseswitcher.to_pascal(sample)  # -> "AvocadoBagelCoffeeDONUTEclairFoodGravy"
+caseswitcher.to_path(sample)  # -> "avocado/bagel/coffee/donut/eclair/food/gravy"
 caseswitcher.to_snake(sample)  # -> "avocado_bagel_coffee_donut_eclair_food_gravy"
 caseswitcher.to_title(sample)  # -> "Avocado Bagel Coffee DONUT Eclair Food Gravy"
 caseswitcher.to_upper_dot(sample)  # -> "AVOCADO.BAGEL.COFFEE.DONUT.ECLAIR.FOOD.GRAVY"
