@@ -73,7 +73,7 @@ def to_upper_snake(string: str) -> str:
 
 def get_words(string: str) -> list[str]:
     """Get a list of the words in a string in the order they appear."""
-    words = [it for it in re.split(r"\b|_", string) if re.match(r"[\d\w]", it)]
+    words = [it for it in re.split(r"\b|_", string) if re.match(r"\w", it)]
     # Split on lower then upper: "oneTwo" -> ["one", "Two"]
     words = _split_words_on_regex(words, re.compile(r"(?<=[a-z])(?=[A-Z])"))
     # Split on upper then upper + lower: "JSONWord" -> ["JSON", "Word"]
