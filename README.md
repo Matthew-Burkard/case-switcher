@@ -16,11 +16,6 @@
   <img src="https://img.shields.io/badge/coverage-100%25-success"
    height="20"
    alt="Code Coverage">
-  <a href="https://www.codefactor.io/repository/github/matthew-burkard/case-switcher">
-    <img
-     src="https://www.codefactor.io/repository/github/matthew-burkard/case-switcher/badge"
-     alt="CodeFactor" />
-  </a>
 </div>
 
 This library provides functions to change the casing convention of a string.
@@ -66,3 +61,12 @@ caseswitcher.to_upper_dot(sample)  # -> "AVOCADO.BAGEL.COFFEE.DONUT.ECLAIR.FOOD.
 caseswitcher.to_upper_kebab(sample)  # -> "AVOCADO-BAGEL-COFFEE-DONUT-ECLAIR-FOOD-GRAVY"
 caseswitcher.to_upper_snake(sample)  # -> "AVOCADO_BAGEL_COFFEE_DONUT_ECLAIR_FOOD_GRAVY"
 ```
+
+## Support The Developer
+
+<a href="https://www.buymeacoffee.com/mburkard" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png"
+       width="217"
+       height="60"
+       alt="Buy Me A Coffee">
+</a>
