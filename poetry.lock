@@ -22,7 +22,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7
 
 [[package]]
 name = "coverage"
-version = "6.5.0"
+version = "7.0.5"
 description = "Code coverage measurement for Python"
 category = "dev"
 optional = false
@@ -113,7 +113,7 @@ diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
 name = "pytest"
-version = "7.2.0"
+version = "7.2.1"
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
@@ -150,7 +150,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "1eb0d2e581942a86c298588e81053e98d498435ab740ac1fd4730ae4697856d9"
+content-hash = "a0f00ef405f6c5a1425f4cc2bb058796532b15ab01fbf4316fc32c0c8f9b5404"
 
 [metadata.files]
 attrs = []
