@@ -57,8 +57,11 @@ caseswitcher.to_pascal(sample)  # -> "AvocadoBagelCoffeeDONUTEclairFoodGravy"
 caseswitcher.to_path(sample)  # -> "avocado/bagel/coffee/donut/eclair/food/gravy"
 caseswitcher.to_snake(sample)  # -> "avocado_bagel_coffee_donut_eclair_food_gravy"
 caseswitcher.to_title(sample)  # -> "Avocado Bagel Coffee DONUT Eclair Food Gravy"
+# Deprecated, use `to_dot(sample).upper()` instead.
 caseswitcher.to_upper_dot(sample)  # -> "AVOCADO.BAGEL.COFFEE.DONUT.ECLAIR.FOOD.GRAVY"
+# Deprecated, use `to_kebab(sample).upper()` instead.
 caseswitcher.to_upper_kebab(sample)  # -> "AVOCADO-BAGEL-COFFEE-DONUT-ECLAIR-FOOD-GRAVY"
+# Deprecated, use `to_snake(sample).upper()` instead.
 caseswitcher.to_upper_snake(sample)  # -> "AVOCADO_BAGEL_COFFEE_DONUT_ECLAIR_FOOD_GRAVY"
 ```
 

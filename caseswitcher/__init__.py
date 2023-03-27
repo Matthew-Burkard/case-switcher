@@ -1,5 +1,6 @@
 """Module with functions to change casing of a string."""
 import re
+import warnings
 
 from typing import Union
 
@@ -58,16 +59,31 @@ def to_title(string: str) -> str:
 
 def to_upper_dot(string: str) -> str:
     """Return a version of the string in UPPER.DOT.CASE format."""
+    warnings.warn(
+        f"to_upper_dot(...) is Deprecated. Use to_dot(...).uppper() instead.",
+        category=DeprecationWarning,
+        stacklevel=2,
+    )
     return ".".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def to_upper_kebab(string: str) -> str:
     """Return a version of the string in UPPER-KEBAB-CASE format."""
+    warnings.warn(
+        f"to_upper_kebab(...) is Deprecated. Use to_kebab(...).uppper() instead.",
+        category=DeprecationWarning,
+        stacklevel=2,
+    )
     return "-".join(map(lambda w: w.upper(), get_words(string)))
 
 
 def to_upper_snake(string: str) -> str:
     """Return a version of the string in UPPER_SNAKE_CASE format."""
+    warnings.warn(
+        f"to_upper_snake(...) is Deprecated. Use to_snake(...).uppper() instead.",
+        category=DeprecationWarning,
+        stacklevel=2,
+    )
     return "_".join(map(lambda w: w.upper(), get_words(string)))
 
 
