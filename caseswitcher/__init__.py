@@ -1,8 +1,4 @@
 """Module with functions to change casing of a string."""
-import re
-import warnings
-
-from typing import Union
 
 __all__ = (
     "get_words",
@@ -12,19 +8,24 @@ __all__ = (
     "to_pascal",
     "to_snake",
     "to_title",
-    "to_upper_dot",
-    "to_upper_kebab",
-    "to_upper_snake",
 )
+
+import re
+import warnings
+
+from typing import Union
 
 
 def to_camel(string: str) -> str:
     """Return a version of the string in camelCase format."""
+    preserve_upper = not string.isupper()
     words = get_words(string)
     first_word = ""
     if len(words) > 0:
-        first_word = words[0] if words[0].isupper() else words[0].lower()
-    return first_word + "".join(map(_capitalize, words[1:]))
+        first_word = (
+            words[0] if words[0].isupper() and preserve_upper else words[0].lower()
+        )
+    return first_word + "".join(_capitalize(w, preserve_upper) for w in words[1:])
 
 
 def to_dot(string: str) -> str:
@@ -39,7 +40,8 @@ def to_kebab(string: str) -> str:
 
 def to_pascal(string: str) -> str:
     """Return a version of the string in PascalCase format."""
-    return "".join(map(_capitalize, get_words(string)))
+    preserve_upper = not string.isupper()
+    return "".join(_capitalize(w, preserve_upper) for w in get_words(string))
 
 
 def to_path(string: str) -> str:
@@ -54,13 +56,14 @@ def to_snake(string: str) -> str:
 
 def to_title(string: str) -> str:
     """Return a version of the string in Title Case format."""
-    return " ".join(map(_capitalize, get_words(string)))
+    preserve_upper = not string.isupper()
+    return " ".join(_capitalize(w, preserve_upper) for w in get_words(string))
 
 
 def to_upper_dot(string: str) -> str:
     """Return a version of the string in UPPER.DOT.CASE format."""
     warnings.warn(
-        f"to_upper_dot(...) is Deprecated. Use to_dot(...).uppper() instead.",
+        f"to_upper_dot(...) is Deprecated. Use to_dot(...).upper() instead.",
         category=DeprecationWarning,
         stacklevel=2,
     )
@@ -70,7 +73,7 @@ def to_upper_dot(string: str) -> str:
 def to_upper_kebab(string: str) -> str:
     """Return a version of the string in UPPER-KEBAB-CASE format."""
     warnings.warn(
-        f"to_upper_kebab(...) is Deprecated. Use to_kebab(...).uppper() instead.",
+        f"to_upper_kebab(...) is Deprecated. Use to_kebab(...).upper() instead.",
         category=DeprecationWarning,
         stacklevel=2,
     )
@@ -80,7 +83,7 @@ def to_upper_kebab(string: str) -> str:
 def to_upper_snake(string: str) -> str:
     """Return a version of the string in UPPER_SNAKE_CASE format."""
     warnings.warn(
-        f"to_upper_snake(...) is Deprecated. Use to_snake(...).uppper() instead.",
+        f"to_upper_snake(...) is Deprecated. Use to_snake(...).upper() instead.",
         category=DeprecationWarning,
         stacklevel=2,
     )
@@ -99,8 +102,8 @@ def get_words(string: str) -> list[str]:
     return words
 
 
-def _capitalize(word: str) -> str:
-    return word if word.isupper() else word.capitalize()
+def _capitalize(word: str, preserve_upper: bool) -> str:
+    return word if preserve_upper and word.isupper() else word.capitalize()
 
 
 def _split_words_on_regex(words: list[str], regex: Union[re.Pattern, str]) -> list[str]:
